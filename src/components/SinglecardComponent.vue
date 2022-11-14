@@ -1,6 +1,6 @@
 <template>
     <div class="p-5" v-if="loading">
-        <p class="fw-bold">Carico i dati...</p>
+        <p class="fw-bold text-black">Carico i dati...</p>
     </div>
     <div class="d-flex flex-wrap" v-else="!loading">
             <div class="vz_col" v-for="(item) in characters" :key="item.char_id">
