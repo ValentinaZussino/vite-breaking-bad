@@ -1,7 +1,8 @@
 <template>
     <div class="search-bar ps-2 my-3">
         <select name="category" id="">
-            <option value="volvo">Select category</option>
+            <option selected value="select category">Select category</option>
+            <option value="alive">Alive</option>
         </select>
     </div>
 </template>
