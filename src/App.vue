@@ -25,10 +25,23 @@ import {store} from './store';
       methods: {
         getCharacters(){
         let options = null;
-        if(store.searchCategory) {
+        if(store.searchCategory && store.searchName) {
           options = {
             params: {
-              category: store.searchCategory
+              category: store.searchCategory,
+              name: store.searchName
+            }
+          }
+        } else if (store.searchCategory) {
+          options = {
+            params: {
+              category: store.searchCategory,
+            }
+          }
+        } else if (store.searchName) {
+          options = {
+            params: {
+              name: store.searchName,
             }
           }
         }

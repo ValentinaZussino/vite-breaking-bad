@@ -5,10 +5,10 @@
             <option value="alive">Alive</option>
         </select> -->
         <form class="row row-cols-lg-auto g-3 align-items-center" @submit.prevent="searchCategory">
-            <!-- <div class="col-12">
+            <div class="col-12">
                 <label class="visually-hidden" for="charactername">Search Name</label>
-                <input type="text" class="form-control" id="charactername" placeholder="Search Name">
-            </div> -->
+                <input type="text" class="form-control" id="charactername" placeholder="Search Name" v-model="store.searchName">
+            </div>
 
             <div class="col-12">
                 <label class="visually-hidden" for="searchcategory">Search Category</label>
@@ -47,6 +47,7 @@ import { store } from '../store';
             },
             resetSearch(){
                 store.searchCategory='';
+                store.searchName='';
                 this.$emit('filteredchar');
             }
         }
