@@ -1,6 +1,7 @@
 <template>
-    <div class="p-5" v-if="store.loading">
-        <p class="fw-bold text-black">Carico i dati...</p>
+    <div class="p-5 d-flex align-items-center" v-if="store.loading">
+        <p class="fw-bold text-black me-4 mb-0 align-bottom">Carico i dati...</p>
+        <div class="vz_loader"></div>
     </div>
     <div class="d-flex flex-wrap" v-else="!store.loading">
             <div class="vz_col" v-for="(item) in store.characterList" :key="item.char_id">
@@ -32,6 +33,18 @@ import {store} from '../store'
 
 <style lang="scss" scoped>
 @use '../assets/style/partials/variables' as *;
+.vz_loader {
+  border: 5px solid rgb(205, 205, 205);
+  border-top: 5px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .vz_col {
     width: calc(100% / 5);
     .single-card { 
