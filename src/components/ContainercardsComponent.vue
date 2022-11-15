@@ -3,11 +3,13 @@
         <div class="black-bar">
             <p>Found 62 characters</p>
         </div>
-        <SinglecardComponent :characters="characterList" :loading="loading"/>
+        <SinglecardComponent/>
+        <!-- <SinglecardComponent :characters="characterList" :loading="loading"/> -->
     </div>
 </template>
 
 <script>
+
 import SinglecardComponent from './SinglecardComponent.vue';
     export default {
         name: 'ContainercardsComponent',

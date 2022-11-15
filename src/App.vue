@@ -2,7 +2,7 @@
   <div>
     <HeaderComponent/>
     <main class="container">
-    <SearchbarComponent/>
+    <SearchbarComponent @filteredchar="getCharacters"/>
     <ContainercardsComponent/>
     </main>
   </div>

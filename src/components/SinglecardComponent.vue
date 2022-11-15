@@ -1,9 +1,9 @@
 <template>
-    <div class="p-5" v-if="loading">
+    <div class="p-5" v-if="store.loading">
         <p class="fw-bold text-black">Carico i dati...</p>
     </div>
-    <div class="d-flex flex-wrap" v-else="!loading">
-            <div class="vz_col" v-for="(item) in characters" :key="item.char_id">
+    <div class="d-flex flex-wrap" v-else="!store.loading">
+            <div class="vz_col" v-for="(item) in store.characterList" :key="item.char_id">
                 <div class="single-card">
                     <img :src="item.img" :alt="item.name" class="mb-2">
                     <span class="fw-bold text-uppercase">{{item.name}}</span>
@@ -18,9 +18,15 @@
 </template>
 
 <script>
+import {store} from '../store'
     export default {
         name: 'SinglecardComponent',
-        props: ['characters', 'loading']
+        // props: ['characters', 'loading']
+        data(){
+            return {
+                store
+            }
+        }
     }
 </script>
 
