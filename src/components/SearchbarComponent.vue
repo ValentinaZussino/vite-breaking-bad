@@ -13,7 +13,7 @@
             <div class="col-12">
                 <label class="visually-hidden" for="searchcategory">Search Category</label>
                 <select class="form-select" id="searchcategory" v-model="store.searchCategory">
-                <option selected>Select category</option>
+                <option value="" selected>Select category</option>
                 <option :value="category" v-for="(category, index) in categoryOptions" :key="index">{{category}}</option>
                 </select>
             </div>
@@ -21,7 +21,7 @@
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
             <div class="col-12">
-                <button type="reset" class="btn btn-primary" @click="resetSearch">Reset</button>
+                <button type="reset" class="btn btn-danger" @click="resetSearch">Reset</button>
             </div>
         </form>
     </div>

@@ -10,7 +10,6 @@
 
 <script>
 import axios from 'axios';
-
 import ContainercardsComponent from './components/ContainercardsComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import SearchbarComponent from './components/SearchbarComponent.vue';
