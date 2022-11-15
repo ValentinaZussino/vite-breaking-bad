@@ -9,12 +9,47 @@
 </template>
 
 <script>
+import axios from 'axios';
+import {store} from './store';
 import ContainercardsComponent from './components/ContainercardsComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import SearchbarComponent from './components/SearchbarComponent.vue';
 
   export default {
-    components: { HeaderComponent, SearchbarComponent, ContainercardsComponent }
+    components: { HeaderComponent, SearchbarComponent, ContainercardsComponent },
+      data(){
+        return {
+          store,
+          endpoint: 'characters',
+        }
+      },
+      methods: {
+        getCharacters(){
+        let options = null;
+        if(store.searchCategory) {
+          options = {
+            params: {
+              category: store.searchCategory
+            }
+          }
+        }
+        store.loading = true;
+        const apiUrl = store.apiUrl + this.endpoint;
+        axios.get(apiUrl, options).then(
+        (res)=>{
+          store.characterList = [...res.data];
+          console.log(store.characterList);
+          store.loading = false;
+        },
+        )
+        // .catch((error)=>{
+        // console.log(error)
+        // })
+      }
+    },
+    created(){
+      this.getCharacters()
+    }
 }
 </script>
 
