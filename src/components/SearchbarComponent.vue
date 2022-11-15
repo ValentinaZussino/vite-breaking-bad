@@ -12,7 +12,7 @@
 
             <div class="col-12">
                 <label class="visually-hidden" for="searchcategory">Search Category</label>
-                <select class="form-select" id="searchcategory" >
+                <select class="form-select" id="searchcategory" v-model="store.searchCategory">
                 <option selected>Select category</option>
                 <option :value="category" v-for="(category, index) in categoryOptions" :key="index">{{category}}</option>
                 </select>
@@ -34,6 +34,7 @@ import { store } from '../store';
         name: 'SearchbarComponent',
         data(){
             return {
+                store,
                 categoryOptions: [
                     'Breaking Bad',
                     'Better Call Saul'
